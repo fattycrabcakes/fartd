@@ -10,7 +10,9 @@ foreach my $dir (qw(/etc/fartd/)) {
 
 system("useradd -d /usr/share/fartd --user-group -s /usr/sbin/nologin fartd");
 
-copy("conf/fartd.conf","/etc/fartd/");
+if (!-f "/etc/fartd/fartd.conf") {
+	copy("conf/fartd.conf","/etc/fartd/");
+}
 copy("system/fartd.service","/etc/systemd/system");
 
 foreach my $file (glob("share/*.*")) {
@@ -18,7 +20,7 @@ foreach my $file (glob("share/*.*")) {
 }
 
 if (-f '/etc/fartd/fartd.conf') {
-	qx('systemctl reload-daemon');
+	qx('systemctl daemon-reload');
 	qx('systemctl enable fartd');
 }
 system('systemctl start fartd');

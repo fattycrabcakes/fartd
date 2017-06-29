@@ -9,13 +9,12 @@ our $run = 1;
 #$SIG{TERM} = \&signal;
 #$SIG{INT} = \&signal;
 my $conf = YAML::LoadFile("/etc/fartd/fartd.conf");
-open(LOG,">>",$conf->{log});
 while ($run) {
 	my $sleepfor = int(rand($conf->{max_wait}-$conf->{min_wait}))+$conf->{min_wait};
 	say STDERR "Waiting $sleepfor seconds.";
-	sleep($sleepfor);	
 	my $index = int(rand(scalar(@{$conf->{sounds}})));
 	my $wtp = $conf->{sounds}->[$index];
+	sleep($sleepfor);
 	say STDERR sprintf("index %d playing %s",$index,$wtp);
 
 	if (-f $wtp) {

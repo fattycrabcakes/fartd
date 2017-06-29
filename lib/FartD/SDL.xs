@@ -25,6 +25,7 @@ void* playwav(const char* file) {
 	/* Load the WAV */
 	// the specs, length and buffer of our wav are filled
 	if( SDL_LoadWAV(file, &wav_spec, &wav_buffer, &wav_length) == NULL ){
+		printf("BAD WAV\n");
 	  return 1;
 	}
 

@@ -5,7 +5,7 @@ After=network.target
 [Service]
 Type=simple
 User=fartd
-WorkingDirectory=/user/share/fartd
+WorkingDirectory=/usr/share/fartd
 ExecStart=/usr/local/bin/fartd
 Restart=on-abort
 

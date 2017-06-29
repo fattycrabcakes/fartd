@@ -34,6 +34,7 @@ void* playwav(const char* file) {
 	/* Load the WAV */
 	// the specs, length and buffer of our wav are filled
 	if( SDL_LoadWAV(file, &wav_spec, &wav_buffer, &wav_length) == NULL ){
+		printf("BAD WAV\n");
 	  return 1;
 	}
 
@@ -77,7 +78,7 @@ void wav_loaded(void *data, Uint8 *stream, int len) {
 }
 
 
-#line 81 "lib/FartD/SDL.c"
+#line 82 "lib/FartD/SDL.c"
 #ifndef PERL_UNUSED_VAR
 #  define PERL_UNUSED_VAR(var) if (0) var = var
 #endif
@@ -221,7 +222,7 @@ S_croak_xs_usage(const CV *const cv, const char *const params)
 #  define newXS_deffile(a,b) Perl_newXS_deffile(aTHX_ a,b)
 #endif
 
-#line 225 "lib/FartD/SDL.c"
+#line 226 "lib/FartD/SDL.c"
 
 XS_EUPXS(XS_FartD__SDL_playwav); /* prototype to pass -Wmissing-prototypes */
 XS_EUPXS(XS_FartD__SDL_playwav)
@@ -234,9 +235,9 @@ XS_EUPXS(XS_FartD__SDL_playwav)
 ;
 	void *	RETVAL;
 	dXSTARG;
-#line 78 "lib/FartD/SDL.xs"
+#line 79 "lib/FartD/SDL.xs"
 		RETVAL = playwav(filename);
-#line 240 "lib/FartD/SDL.c"
+#line 241 "lib/FartD/SDL.c"
 	XSprePUSH; PUSHi(PTR2IV(RETVAL));
     }
     XSRETURN(1);
