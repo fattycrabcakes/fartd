@@ -1,0 +1,9 @@
+Build.PL
+conf/fartd.conf
+lib/FartD.pm
+lib/FartD/SDL.pm
+lib/FartD/SDL.xs
+Makefile.PL
+scripts/fartd
+share/default.wav
+system/fartd.service

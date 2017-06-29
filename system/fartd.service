@@ -1,0 +1,13 @@
+[Unit]
+Description=PBBBBBBBTTTTTTT
+After=network.target
+
+[Service]
+Type=simple
+User=fartd
+WorkingDirectory=/user/share/fartd
+ExecStart=/usr/local/bin/fartd
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
