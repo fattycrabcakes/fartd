@@ -15,7 +15,7 @@ WriteMakefile(
   CCFLAGS        => '-fPIC -Doff64_t=__off64_t -pthread',
   LIBS			=> `sdl2-config --libs`,
   OPTIMIZE       => '-O3',
-  LICENSE        => 'unlicensed',
+  LICENSE        => 'SSF',
   XSMULTI        => 1,
   TYPEMAPS		=>["lib/typemap"],
   "EXE_FILES"	=>["scripts/fartd"],
