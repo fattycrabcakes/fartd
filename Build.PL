@@ -26,6 +26,7 @@ my $builder = Module::Build->new(
 	config=>{cc => 'gcc', ld => 'gcc'},
     include_dirs => 'src',
     c_source     => [qw(src)],
+	script_files=>["scripts/fartd"],
 	install_path=>{system=>"/etc/systemd/system",conf=>"/etc/fartd",share=>"/usr/share/fartd"},
 	share_files =>{map {($_=>$_)} glob("share/*.*") },
 	conf_files=>{"conf/fartd.conf"=>"conf/fartd.conf"},

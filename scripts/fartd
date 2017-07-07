@@ -1,21 +1,18 @@
 #!/usr/bin/perl
 
 use Modern::Perl;
-use FartD::SDL;
+use FartD;
 use YAML;
 our $run = 1;
 
 my $conf = YAML::LoadFile("/etc/fartd/fartd.conf");
 while ($run) {
 	my $sleepfor = int(rand($conf->{max_wait}-$conf->{min_wait}))+$conf->{min_wait};
-	say STDERR "Waiting $sleepfor seconds.";
 	my $index = int(rand(scalar(@{$conf->{sounds}})));
 	my $wtp = $conf->{sounds}->[$index];
 	sleep($sleepfor);
-	say STDERR sprintf("index %d playing %s",$index,$wtp);
-
 	if (-f $wtp) {
-		FartD::SDL::playwav($wtp);
+		FartD::playwav($wtp);
 	} else {
 		say STDERR "$wtp is not there dude what the hell";
 	}
