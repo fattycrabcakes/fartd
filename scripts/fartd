@@ -1,13 +1,10 @@
 #!/usr/bin/perl
 
 use Modern::Perl;
-use Proc::Daemon;
 use FartD::SDL;
 use YAML;
 our $run = 1;
 
-#$SIG{TERM} = \&signal;
-#$SIG{INT} = \&signal;
 my $conf = YAML::LoadFile("/etc/fartd/fartd.conf");
 while ($run) {
 	my $sleepfor = int(rand($conf->{max_wait}-$conf->{min_wait}))+$conf->{min_wait};
@@ -22,10 +19,6 @@ while ($run) {
 	} else {
 		say STDERR "$wtp is not there dude what the hell";
 	}
-}
-
-sub signal {
-	$run=0;
 }
 
 exit;
