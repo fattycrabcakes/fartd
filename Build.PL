@@ -9,7 +9,7 @@ chomp(@sdl_conf);
 my $builder = Module::Build->new(
 	module_name    => 'FartD',
    	license        => 'perl',
-   	dist_author    => ['Fatty Crabcakes'],
+   	dist_author    => ['Michael Hollenbeck'],
    	needs_compiler => 1,
    	configure_requires => {
    		'Config::AutoConf'   => '0.14',
@@ -24,7 +24,7 @@ my $builder = Module::Build->new(
     extra_compiler_flags => '-I/usr/local/include', 
 	extra_linker_flags=>[@sdl_conf],
 	config=>{cc => 'gcc', ld => 'gcc'},
-    include_dirs => 'src',
+    include_dirs => ['src'],
     c_source     => [qw(src)],
 	script_files=>["scripts/fartd"],
 	install_path=>{system=>"/etc/systemd/system",conf=>"/etc/fartd",share=>"/usr/share/fartd"},
